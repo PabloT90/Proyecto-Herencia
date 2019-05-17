@@ -1,5 +1,8 @@
 package com.company.Clases;
 
+
+
+import java.io.*;
 import java.util.Scanner;
 
 public class Utilidades {
@@ -61,6 +64,40 @@ public class Utilidades {
         }while(opcion < 0 || opcion > 2);
 
         return opcion;
+    }
+
+    /*
+    Interfaz
+    Nombre: mostrarFichero
+    Comentario: Este subprorgama muestra el fichero completo
+    Cabecera: public void mostrarFichero(String ruta)
+    Precondiciones: El fichero debe estar creado
+    Entrada: - String ruta //La ruta donde se encuentra el fichero
+    Salida: No hay
+    E/S: No hay
+    Postcondiciones: Se muestra el fichero completo
+    */
+
+    public void mostrarFichero(String ruta) {
+        try {
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(ruta));
+            CampamentoImpl p = (CampamentoImpl) ois.readObject();
+
+            while(p != null) {
+                System.out.println(p.toString());
+                p = (CampamentoImpl) ois.readObject();
+            }
+            ois.close();
+        }
+        catch(EOFException err) {
+            System.out.println();
+        }
+        catch (IOException err) {
+            err.printStackTrace();
+        }
+        catch (ClassNotFoundException err) {
+            err.printStackTrace();
+        }
     }
 
 
