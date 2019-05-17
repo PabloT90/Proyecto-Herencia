@@ -43,11 +43,7 @@ Requisitos:
 Metodos anhadidos
 No hay
 
- */
-
-import com.company.Excepciones.ExcepcionesCampamento;
-import com.company.Excepciones.ExcepcionesOrganizaciones;
-
+*/
 
 public class CampamentoImpl extends OrganizacionImpl {
     //Atributos
@@ -68,14 +64,8 @@ public class CampamentoImpl extends OrganizacionImpl {
         return calificacion;
     }
 
-    public void setCalificacion(char calificacion) throws ExcepcionesCampamento {
-        if(calificacion == 'O' || calificacion == 'N' || calificacion == 'G' || calificacion == 'D') {
+    public void setCalificacion(char calificacion) {
             this.calificacion = calificacion;
-        }
-        else {
-            throw new ExcepcionesCampamento("La calificacion debe ser O,N,G o D");
-        }
-
     }
 
     //Guerra
@@ -83,34 +73,19 @@ public class CampamentoImpl extends OrganizacionImpl {
         return guerra;
     }
 
-    public void setGuerra(char guerra) throws ExcepcionesCampamento{
-        if(guerra == 's' || guerra == 'n') {
+    public void setGuerra(char guerra) {
             this.guerra = guerra;
-        }
-        else {
-            throw new ExcepcionesCampamento("La guera es si o no (s/n)");
-        }
-
     }
 
     @Override
     //No es la misma cabecera
-    public void setTotalInternos(int totalInternos) throws ExcepcionesCampamento {
-        if(totalInternos >= 20 && totalInternos <= 50) {
-            try {
-                super.setTotalInternos(totalInternos);
-            } catch (ExcepcionesOrganizaciones excepcionesOrganizaciones) {
-                excepcionesOrganizaciones.printStackTrace();
-            }
-        }
-        else {
-            throw new ExcepcionesCampamento("El total de internos tiene que ser de 20 a 50");
-        }
+    public void setTotalInternos(int totalInternos) {
+        super.setTotalInternos(totalInternos);
     }
 
     //toString
     @Override
     public String toString() {
-        return super.toString() + ", " + calificacion + ", " + guerra + ", " + totalInternos;
+        return super.toString() + ", " + calificacion + ", " + guerra;
      }
 }
