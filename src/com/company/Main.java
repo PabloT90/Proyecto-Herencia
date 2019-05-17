@@ -5,11 +5,9 @@ Nombre del programa: main
 Analisis
  Entrada: - int opcion
           - int opcionVoluntario
-          - Objeto Organizaciones
-          - Objeto Campamento
 
  Salida: - Mensajes con el usuario
-         - Listado con diferentes
+         - Listado con diferentes opciones
 
  Requisitos: - opcion tiene que estar entre 0 y 5
              - opcionVoluntario tiene que estar entre 0 y 2
@@ -17,7 +15,7 @@ Analisis
  PG Level 0
  Inicio
     Repetir
-        mostrarMenuPrincipal*
+       MostrarMenuPrincipal*
         leeryValidarOpcion*
         Segun opcion
             Caso 1
@@ -37,8 +35,8 @@ Analisis
  Modulo VoluntariosEnGuerra
  Inicio
      Repetir
-        mostrarVoluntarios*
-        leeryValidarOpcionVoluntario*
+       MostrarSubMenu*
+        leeryValidarOpcionSubMenu*
         Segun opcionVoluntario
             Caso 1
                 VoluntariosNoEnGuerra
@@ -49,15 +47,18 @@ Analisis
  Fin
  */
 
+import com.company.Clases.Utilidades;
+
 public class Main {
     public static void main(String[] args) {
         int opcion = 0;
         int opcionVoluntario = 0;
         String rutaFichero;
+        Utilidades util = new Utilidades();
 
         do {
-            mostrarMenuPrincipal();
-            leeryValidarOpcion();
+            util.MostrarMenuPrincipal();
+            opcion = util.leeryValidarOpcion();
 
             switch (opcion) {
                 case 1:
@@ -67,8 +68,8 @@ public class Main {
                 case 2:
                     System.out.println("VoluntariosEnGuerra");
                     do {
-                        mostrarMenuVoluntarios();
-                        leeryValidarOpcionVoluntario();
+                        util.MostrarSubMenu();
+                        opcionVoluntario = util.leeryValidarOpcionSubMenu();
 
                         switch (opcionVoluntario) {
                             case 1:
