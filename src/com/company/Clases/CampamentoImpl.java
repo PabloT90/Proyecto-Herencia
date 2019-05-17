@@ -45,6 +45,9 @@ No hay
 
  */
 
+import com.company.Excepciones.ExcepcionesCampamento;
+
+
 public class CampamentoImpl extends OrganizacionImpl {
     //Atributos
     private char calificacion;
@@ -65,8 +68,14 @@ public class CampamentoImpl extends OrganizacionImpl {
         return calificacion;
     }
 
-    public void setCalificacion(char calificacion) {
-        this.calificacion = calificacion;
+    public void setCalificacion(char calificacion) throws ExcepcionesCampamento {
+        if(calificacion == 'O' || calificacion == 'N' || calificacion == 'G' || calificacion == 'D') {
+            this.calificacion = calificacion;
+        }
+        else {
+            throw new ExcepcionesCampamento("La calificacion debe ser O,N,G o D");
+        }
+
     }
 
     //Guerra
@@ -74,8 +83,14 @@ public class CampamentoImpl extends OrganizacionImpl {
         return guerra;
     }
 
-    public void setGuerra(char guerra) {
-        this.guerra = guerra;
+    public void setGuerra(char guerra) throws ExcepcionesCampamento{
+        if(guerra == 's' || guerra == 'n') {
+            this.guerra = guerra;
+        }
+        else {
+            throw new ExcepcionesCampamento("La guera es si o no (s/n)");
+        }
+
     }
 
     //TotalInternos
