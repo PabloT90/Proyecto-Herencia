@@ -1,5 +1,5 @@
 package com.company;
-
+import java.util.*;
 /*
 Nombre del programa: main
 Analisis
@@ -47,13 +47,18 @@ Analisis
  Fin
  */
 
+import com.company.Clases.Gestora;
 import com.company.Clases.Utilidades;
 
 public class Main {
     public static void main(String[] args) {
         int opcion = 0;
         int opcionVoluntario = 0;
-        String rutaFichero;
+        String pais;
+        String rutaFichero = "";
+        boolean paisEncontrado;
+        Scanner teclado = new Scanner(System.in);
+        Gestora gestora = new Gestora();
         Utilidades util = new Utilidades();
 
         do {
@@ -62,22 +67,32 @@ public class Main {
 
             switch (opcion) {
                 case 1:
-                    System.out.println("CalcularInternosTotales");
+                    //System.out.println("CalcularInternosTotales");
+                    pais = teclado.next();
+                    paisEncontrado = gestora.paisesCorrectos(rutaFichero, pais);
+                    if(paisEncontrado) {
+                        System.out.println(gestora.calcularInternosTotales(rutaFichero,pais));
+                    }
+                    else {
+                        System.out.println("No hay ningun pais en el fichero");
+                    }
                     break;
 
                 case 2:
-                    System.out.println("VoluntariosEnGuerra");
+                    //System.out.println("VoluntariosEnGuerra");
                     do {
                         util.MostrarSubMenu();
                         opcionVoluntario = util.leeryValidarOpcionSubMenu();
 
                         switch (opcionVoluntario) {
                             case 1:
-                                System.out.println("VoluntariosNoEnGuerra");
+                                //System.out.println("VoluntariosNoEnGuerra");
+                                System.out.println(gestora.voluntariosNoEnGuerra(rutaFichero));
                                 break;
 
                             case 2:
-                                System.out.println("VoluntariosEnGuerra");
+                                //System.out.println("VoluntariosEnGuerra");
+                                System.out.println(gestora.voluntariosEnGuerra(rutaFichero));
                                 break;
                         }
                     }
