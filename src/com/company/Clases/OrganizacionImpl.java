@@ -1,5 +1,6 @@
 package com.company.Clases;
 
+import com.company.Excepciones.ExcepcionesOrganizaciones;
 import com.company.Interfaces.Organizacion;
 
 /*
@@ -9,7 +10,12 @@ import com.company.Interfaces.Organizacion;
 *   - Int totalInternos, consultable y modificable.
 *   - Int numeroVoluntarios, consultable y modificable
 * Propiedades derivadas: nada.
-* Propiedades añadidas: nada.
+* Metodos añadidos:
+*   - equals
+*   - compareTo
+*   - toString
+*   - hashCode
+*   - clone
 * Propiedades compartidas: nada.
 * Restricciones:
 *   - totalInternos no puede ser negativo.
@@ -76,15 +82,19 @@ public class OrganizacionImpl implements Organizacion, Cloneable {
     public int getTotalInternos(){
         return totalInternos;
     }
-    public void setTotalInternos(int internos){
-        this.totalInternos = internos;
+    public void setTotalInternos(int internos) throws ExcepcionesOrganizaciones{
+        if(internos >= 0)
+            this.totalInternos = internos;
+        else throw new ExcepcionesOrganizaciones("El total de internos debe ser superior a 0.");
     }
 
     public int getNumeroVoluntarios(){
         return numeroVoluntarios;
     }
-    public void setNumeroVoluntarios(int voluntarios){
-        this.numeroVoluntarios= voluntarios;
+    public void setNumeroVoluntarios(int voluntarios) throws ExcepcionesOrganizaciones{
+        if(numeroVoluntarios >= 0)
+            this.numeroVoluntarios= voluntarios;
+        else throw new ExcepcionesOrganizaciones("El numero de voluntarios debe ser superior a 0.");
     }
 
     //Metodos añadidos
@@ -132,7 +142,7 @@ public class OrganizacionImpl implements Organizacion, Cloneable {
      * Devuelve 1 si el numero de votos es mayor que el del 2.
      * Devuelve -1 si el numero de votos en menor que el del 2.
      * */
-    public int compareTo(OrganizacionImpl otro){
+    /*public int compareTo(OrganizacionImpl otro){
         int ret = -1;
 
         if(this.getNumVotos() > otro.getNumVotos()){
@@ -141,5 +151,5 @@ public class OrganizacionImpl implements Organizacion, Cloneable {
             ret = 0;
         }
         return ret;
-    }
+    }*/
 }
