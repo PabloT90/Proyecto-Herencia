@@ -122,7 +122,7 @@ public class OrganizacionImpl implements Organizacion, Cloneable {
     }
 
     @Override
-    protected OrganizacionImpl clone(){
+    public OrganizacionImpl clone(){
         OrganizacionImpl copia = null;
         try{
             copia = (OrganizacionImpl) super.clone();
