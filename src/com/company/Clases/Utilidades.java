@@ -9,7 +9,7 @@ public class Utilidades {
     * Postcondiciones: nada, solo muestra en pantalla.
     * Cabecera: public void MostrarMenuPrincipal()
     * */
-    public void MostrarMenuPrincipal(){
+    public void mostrarMenuPrincipal(){
         System.out.println("1) Calcular internos totales.");
         System.out.println("2) Voluntarios en guerra.");
         System.out.println("3) Campos segun calificacion.");
@@ -20,7 +20,7 @@ public class Utilidades {
     /*
     * Lee y valida la opcion del menu.
     * Salida: entero opcion
-    * Postcondiciones: asociado al nombre devuelve un numero entre 1 y 5.
+    * Postcondiciones: asociado al nombre devuelve un numero entre 0 y 5.
     * Cabecera: public int leeryValidarOpcion()
     * */
     public int leeryValidarOpcion(){
@@ -30,7 +30,7 @@ public class Utilidades {
         do{
             System.out.println("Selecciona la opcion del menu:");
             opcion = teclado.nextInt();
-        }while(opcion < 1 || opcion > 5);
+        }while(opcion < 0 || opcion > 5);
 
         return opcion;
     }
@@ -48,7 +48,7 @@ public class Utilidades {
     /*
      * Lee y valida la opcion del menu.
      * Salida: entero opcion
-     * Postcondiciones: asociado al nombre devuelve un numero entre 1 y 2.
+     * Postcondiciones: asociado al nombre devuelve un numero entre 0 y 2.
      * Cabecera: public int leeryValidarOpcionSubMenu()
      * */
     public int leeryValidarOpcionSubMenu(){
@@ -58,7 +58,7 @@ public class Utilidades {
         do{
             System.out.println("Selecciona la opcion del menu:");
             opcion = teclado.nextInt();
-        }while(opcion < 1 || opcion > 2);
+        }while(opcion < 0 || opcion > 2);
 
         return opcion;
     }
