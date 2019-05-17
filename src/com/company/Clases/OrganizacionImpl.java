@@ -34,7 +34,7 @@ import com.company.Interfaces.Organizacion;
 * int getNumeroVoluntarios()
 * void setNumeroVoluntarios(int voluntarios)
 * */
-public class OrganizacionImpl implements Organizacion, Cloneable {
+public class OrganizacionImpl implements Organizacion, Cloneable, Comparable<OrganizacionImpl> {
     private String pais;
     private String nombre;
     private int totalInternos;
@@ -82,19 +82,15 @@ public class OrganizacionImpl implements Organizacion, Cloneable {
     public int getTotalInternos(){
         return totalInternos;
     }
-    public void setTotalInternos(int internos) throws ExcepcionesOrganizaciones{
-        if(internos >= 0)
-            this.totalInternos = internos;
-        else throw new ExcepcionesOrganizaciones("El total de internos debe ser superior a 0.");
+    public void setTotalInternos(int internos){
+        this.totalInternos = internos;
     }
 
     public int getNumeroVoluntarios(){
         return numeroVoluntarios;
     }
-    public void setNumeroVoluntarios(int voluntarios) throws ExcepcionesOrganizaciones{
-        if(numeroVoluntarios >= 0)
-            this.numeroVoluntarios= voluntarios;
-        else throw new ExcepcionesOrganizaciones("El numero de voluntarios debe ser superior a 0.");
+    public void setNumeroVoluntarios(int voluntarios){
+        this.numeroVoluntarios= voluntarios;
     }
 
     //Metodos añadidos
@@ -139,17 +135,17 @@ public class OrganizacionImpl implements Organizacion, Cloneable {
 
     /*Criterio de comparacion:
      * Devuelve 0 si el pais y el nombre son iguales
-     * Devuelve 1 si el numero de votos es mayor que el del 2.
-     * Devuelve -1 si el numero de votos en menor que el del 2.
+     * Devuelve 1 si los nombres son iguales.
+     * Devuelve -1 si ni el nombre ni el pais son iguales
      * */
-    /*public int compareTo(OrganizacionImpl otro){
+    public int compareTo(OrganizacionImpl otro){
         int ret = -1;
 
-        if(this.getNumVotos() > otro.getNumVotos()){
-            ret = 1;
-        }else if(this.getNumVotos() == otro.getNumVotos()){
+        if(this.getPais().equals(otro.getPais()) && this.getNombre().equals(otro.getNombre())){
             ret = 0;
+        }else if(this.getPais().compareTo(otro.getPais()) > 0 || (this.getPais().compareTo(otro.getPais()) == 0 && this.getNombre().compareTo(otro.getNombre()) > 0 )){
+            ret = 1;
         }
         return ret;
-    }*/
+    }
 }

@@ -1,7 +1,6 @@
 package com.company.Tests;
 
 import com.company.Clases.OrganizacionImpl;
-import com.company.Excepciones.ExcepcionesOrganizaciones;
 
 public class TestOrganizacion {
     public static void main(String[] args){
@@ -30,20 +29,12 @@ public class TestOrganizacion {
         org1.setNombre("Rafae");
         System.out.println("Nombre: "+org1.getNombre());
 
-        try{
-            org1.setNumeroVoluntarios(11);
-            org1.setNumeroVoluntarios(-11);
-        }catch(ExcepcionesOrganizaciones error){
-            System.out.println("Error en el numero de voluntarios");
-        }
+        org1.setNumeroVoluntarios(11);
+        org1.setNumeroVoluntarios(-11);
         System.out.println("Numero voluntarios: "+org1.getNumeroVoluntarios());
 
-        try{
-            org1.setTotalInternos(11);
-            //org1.setTotalInternos(-12);
-        }catch(ExcepcionesOrganizaciones error){
-            System.out.println("Error en el total de internos");
-        }
+        org1.setTotalInternos(11);
+        //org1.setTotalInternos(-12);
         System.out.println("Total internos: "+org1.getTotalInternos());
 
 
@@ -55,8 +46,8 @@ public class TestOrganizacion {
         System.out.println("Equals org2 con el 3: "+org1.equals(org3));
 
         //CompareTo
-        //System.out.println("compareTo jugador 1 con el 2: "+org1.compareTo(player2));
-        //System.out.println("compareTo jugador 1 con el 3: "+org1.compareTo(player3));
+        System.out.println("compareTo jugador 1 con el 2: "+org1.compareTo(org2));
+        System.out.println("compareTo jugador 1 con el 3: "+org1.compareTo(org3));
 
         //Clone
         System.out.println("Prueba clone: ");
