@@ -1,5 +1,5 @@
 package com.company;
-import java.util.*;
+
 /*
 Nombre del programa: main
 Analisis
@@ -52,14 +52,14 @@ import com.company.Clases.Utilidades;
 
 public class Main {
     public static void main(String[] args) {
-        int opcion = 0;
-        int opcionVoluntario = 0;
+        int opcion;
+        int opcionVoluntario;
         String pais;
         String rutaFichero = "";
         boolean paisEncontrado;
-        Scanner teclado = new Scanner(System.in);
         Gestora gestora = new Gestora();
         Utilidades util = new Utilidades();
+        char calificacion;
 
         do {
             util.MostrarMenuPrincipal();
@@ -72,8 +72,7 @@ public class Main {
                     paisEncontrado = gestora.paisesCorrectos(rutaFichero, pais);
                     if(paisEncontrado) {
                         System.out.println(gestora.calcularInternosTotales(rutaFichero,pais));
-                    }
-                    else {
+                    }else {
                         System.out.println("No hay ningun pais en el fichero");
                     }
                     break;
@@ -95,23 +94,24 @@ public class Main {
                                 System.out.println(gestora.voluntariosEnGuerra(rutaFichero));
                                 break;
                         }
-                    }
-                    while(opcionVoluntario != 0);
+                    }while(opcionVoluntario != 0);
                     break;
 
                 case 3:
-                    System.out.println("ListarCalificacion");
+                    calificacion = util.LeerValidarCalificacion();
+                    gestora.camposSegunCalificacion(calificacion, rutaFichero);
                     break;
 
                 case 4:
-                    System.out.println("CamposEnGuerraPorPaises");
+                    gestora.camposEnGuerra(rutaFichero);
                     break;
 
                 case 5:
-                    System.out.println("TotalVoluntarios");
+                    pais = util.LeerPais();
+                    gestora.totalVoluntarios(rutaFichero, pais);
                     break;
             }
-        }
-        while(opcion != 0);
+        }while(opcion != 0);
+
     }
 }
