@@ -68,7 +68,7 @@ public class Main {
             switch (opcion) {
                 case 1:
                     //System.out.println("CalcularInternosTotales");
-                    pais = teclado.next();
+                    pais = util.LeerPais();
                     paisEncontrado = gestora.paisesCorrectos(rutaFichero, pais);
                     if(paisEncontrado) {
                         System.out.println(gestora.calcularInternosTotales(rutaFichero,pais));
