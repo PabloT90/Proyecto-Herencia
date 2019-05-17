@@ -46,20 +46,20 @@ No hay
  */
 
 import com.company.Excepciones.ExcepcionesCampamento;
+import com.company.Excepciones.ExcepcionesOrganizaciones;
 
 
 public class CampamentoImpl extends OrganizacionImpl {
     //Atributos
     private char calificacion;
     private char guerra;
-    private int totalInternos;
 
     //Constructor
-    public CampamentoImpl(String pais, String nombre, int totalInternosP,int numeroVoluntarios, char calificacion, char guerra, int totalInternosH) {
-        super(pais, nombre, totalInternosP, numeroVoluntarios);
+    public CampamentoImpl(String pais, String nombre, int totalInternos,int numeroVoluntarios, char calificacion, char guerra) {
+        super(pais, nombre, totalInternos, numeroVoluntarios);
         this.calificacion = calificacion;
         this.guerra = guerra;
-        this.totalInternos = totalInternosH;
+
     }
 
     //Metodos
@@ -93,13 +93,19 @@ public class CampamentoImpl extends OrganizacionImpl {
 
     }
 
-    //TotalInternos
-    public int getTotalInternos() {
-        return totalInternos;
-    }
-
-    public void setTotalInternos(int totalInternos) {
-        this.totalInternos = totalInternos;
+    @Override
+    //No es la misma cabecera
+    public void setTotalInternos(int totalInternos) throws ExcepcionesCampamento {
+        if(totalInternos >= 20 && totalInternos <= 50) {
+            try {
+                super.setTotalInternos(totalInternos);
+            } catch (ExcepcionesOrganizaciones excepcionesOrganizaciones) {
+                excepcionesOrganizaciones.printStackTrace();
+            }
+        }
+        else {
+            throw new ExcepcionesCampamento("El total de internos tiene que ser de 20 a 50");
+        }
     }
 
     //toString
