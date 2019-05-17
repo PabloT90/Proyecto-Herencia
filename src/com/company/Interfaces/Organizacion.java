@@ -1,7 +1,5 @@
 package com.company.Interfaces;
 
-import com.company.Excepciones.ExcepcionesOrganizaciones;
-
 /*
 * Propiedades basicas:
 *   - String pais, consultable y modificable.
@@ -33,8 +31,8 @@ public interface Organizacion {
     public void setNombre(String nombre);
 
     public int getTotalInternos();
-    public void setTotalInternos(int internos) throws ExcepcionesOrganizaciones;
+    public void setTotalInternos(int internos);
 
     public int getNumeroVoluntarios();
-    public void setNumeroVoluntarios(int voluntarios) throws ExcepcionesOrganizaciones;
+    public void setNumeroVoluntarios(int voluntarios);
 }

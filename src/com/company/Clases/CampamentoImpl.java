@@ -45,7 +45,9 @@ No hay
 
 */
 
-public class CampamentoImpl extends OrganizacionImpl {
+import java.io.Serializable;
+
+public class CampamentoImpl extends OrganizacionImpl implements Serializable {
     //Atributos
     private char calificacion;
     private char guerra;

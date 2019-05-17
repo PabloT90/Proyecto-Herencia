@@ -1,6 +1,7 @@
 package com.company.Clases;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class FuncionesFicheros {
@@ -92,14 +93,17 @@ public class FuncionesFicheros {
     * contiene los datos del fichero.
     * */
     public <T> T[] volcarFicheroEnArray(String direccionFichero){
-        T[] array = (T[]) new Object[numeroRegistrosFichero(direccionFichero)];
+        T[] array = (T[]) Array.newInstance(CampamentoImpl, numeroRegistrosFichero(direccionFichero));
+        //T[] array = (T[]) new Object[numeroRegistrosFichero(direccionFichero)];
         FileInputStream fis = null;
         ObjectInputStream ois = null;
         try{
             fis = new FileInputStream(direccionFichero);//Volcamos los datos del archivo en el array.
             ois = new ObjectInputStream(fis);
+            System.out.println(array.length);
             for(int i = 0; i < array.length; i++){
                 array[i] = (T) ois.readObject();
+                System.out.println(array[i].toString());
             }
         }catch (FileNotFoundException error1){
             error1.printStackTrace();

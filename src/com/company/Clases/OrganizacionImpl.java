@@ -1,7 +1,8 @@
 package com.company.Clases;
 
-import com.company.Excepciones.ExcepcionesOrganizaciones;
 import com.company.Interfaces.Organizacion;
+
+import java.io.Serializable;
 
 /*
 * Propiedades basicas:
@@ -34,7 +35,7 @@ import com.company.Interfaces.Organizacion;
 * int getNumeroVoluntarios()
 * void setNumeroVoluntarios(int voluntarios)
 * */
-public class OrganizacionImpl implements Organizacion, Cloneable, Comparable<OrganizacionImpl> {
+public class OrganizacionImpl implements Serializable, Organizacion, Cloneable, Comparable<OrganizacionImpl> {
     private String pais;
     private String nombre;
     private int totalInternos;
