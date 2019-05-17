@@ -1,82 +1,73 @@
 package com.company.Tests;
 
 import com.company.Clases.OrganizacionImpl;
+import com.company.Excepciones.ExcepcionesOrganizaciones;
 
 public class TestOrganizacion {
     public static void main(String[] args){
         //Constructor por defecto
-        OrganizacionImpl player1 = new OrganizacionImpl();
-        System.out.println("Por defecto: "+player1.toString());
+        OrganizacionImpl org1 = new OrganizacionImpl();
+        System.out.println("Por defecto: "+org1.toString());
 
         //Constructor con parametros
-        OrganizacionImpl player2 = new OrganizacionImpl("Angola","Tartulia", 1, 1);
-        System.out.println("Con parametros: "+player2.toString());
+        OrganizacionImpl org2 = new OrganizacionImpl("Angola","Tartulia", 1, 1);
+        System.out.println("Con parametros: "+org2.toString());
 
         //Construtor de copia
-        OrganizacionImpl player3 = new OrganizacionImpl(player2);
-        System.out.println("De copia: "+player3.toString());
-        
+        OrganizacionImpl org3 = new OrganizacionImpl(org2);
+        System.out.println("De copia: "+org3.toString());
+
         //Gets y sets
-        try {
-            player1.setVida(10);
-            //player1.setVida(-10); Debe dar error
-        }catch(Excepciones error){
-            System.out.println("Error en la vida");
-        }
-        System.out.println("Vida: "+player1.getVida());
-        try{
-            player1.setEdad(11);
-            //player1.setEdad(-1); Debe dar error
-        }catch(Excepciones error){
-            System.out.println("Error en la edad");
-        }
-        System.out.println("Edad: "+player1.getEdad());
 
-        player1.setNombre("Rafae");
-        System.out.println("Nombre: "+player1.getNombre());
+        org1.setPais("Pensilvania");
+        //org1.setPais("Espana");
+        System.out.println("Pais: "+org1.getPais());
+
+        org1.setNombre("Nombre1");
+        //org1.setNombre("Nombre2");
+        System.out.println("Nombre: "+org1.getNombre());
+
+        org1.setNombre("Rafae");
+        System.out.println("Nombre: "+org1.getNombre());
 
         try{
-            player1.setHabilidadDanio(11);
-            //player1.setHabilidadDanio(-12);
-            //player1.setHabilidadDanio(100);
-        }catch(Excepciones error){
-            System.out.println("Error en el daño");
+            org1.setNumeroVoluntarios(11);
+            org1.setNumeroVoluntarios(-11);
+        }catch(ExcepcionesOrganizaciones error){
+            System.out.println("Error en el numero de voluntarios");
         }
-        System.out.println("Danio: "+player1.getHabilidadDanio());
+        System.out.println("Numero voluntarios: "+org1.getNumeroVoluntarios());
 
         try{
-            player1.setHabilidadSanacion(11);
-            //player1.setHabilidadSanacion(-12);
-            //player1.setHabilidadSanacion(100);
-        }catch(Excepciones error){
-            System.out.println("Error en la sanacion");
+            org1.setTotalInternos(11);
+            //org1.setTotalInternos(-12);
+        }catch(ExcepcionesOrganizaciones error){
+            System.out.println("Error en el total de internos");
         }
-        System.out.println("Danio: "+player1.getHabilidadSanacion());
+        System.out.println("Total internos: "+org1.getTotalInternos());
 
-        player1.Atacar(player2,20);
-        System.out.println("Vida del jugador 2: "+player2.getVida());
-
-        player2.Sanar(15);
-        System.out.println("Sanar, Vida Jugador 2: "+ player2.getVida());
 
         //hashCode
-        System.out.println("hashCode: "+player1.hashCode());
+        System.out.println("hashCode: "+ org1.hashCode());
 
         //equals
-        System.out.println("Equals jugador 1 con el 2: "+player1.equals(player2));
-        System.out.println("Equals jugador 1 con el 3: "+player1.equals(player3));
+        System.out.println("Equals org1 con el 2: "+org1.equals(org2));
+        System.out.println("Equals org2 con el 3: "+org1.equals(org3));
 
         //CompareTo
-        System.out.println("compareTo jugador 1 con el 2: "+player1.compareTo(player2));
-        System.out.println("compareTo jugador 1 con el 3: "+player1.compareTo(player3));
+        //System.out.println("compareTo jugador 1 con el 2: "+org1.compareTo(player2));
+        //System.out.println("compareTo jugador 1 con el 3: "+org1.compareTo(player3));
 
         //Clone
         System.out.println("Prueba clone: ");
-        System.out.println("player1.toString() --> "+player1.toString());
-        System.out.println("player3.toString() --> "+player3.toString());
+        System.out.println("org1.toString() --> "+org1.toString());
+        System.out.println("org3.toString() --> "+org3.toString());
 
-        System.out.println("player3 = player1.clone() --> Realizamos la clonacion");
-        player3 = player1.clone();
-        System.out.println("player1.equals(player3) --> "+player1.equals(player3));
+        System.out.println("org3 = org1.clone() --> Realizamos la clonacion");
+        org3 = org1.clone();
+        System.out.println("org1.equals(org3) --> "+org1.equals(org3));
+
+        //totring
+        System.out.println("org.toString(): "+ org1.toString());
     }
 }
