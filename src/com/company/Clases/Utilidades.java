@@ -77,7 +77,6 @@ public class Utilidades {
     E/S: No hay
     Postcondiciones: Se muestra el fichero completo
     */
-
     public void mostrarFichero(String ruta) {
         try {
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(ruta));
@@ -100,5 +99,38 @@ public class Utilidades {
         }
     }
 
+    /*
+    * Lee y valida una calificacion.
+    * Salida: char opcion.
+    * Postcondiciones: asociado al nombre devuelve un caracter. 'O', 'N', 'G' o 'D'.
+    * Cabecera: public char LeerValidarCalificacion()
+    * */
+    public char LeerValidarCalificacion(){
+        Scanner teclado = new Scanner(System.in);
+        char calificacion;
 
+        do{
+            System.out.println("Escribe la calificacion. 'D', 'N', 'G' o 'D'.");
+            calificacion = Character.toUpperCase(teclado.next().charAt(0));
+        }while(calificacion != 'O' && calificacion != 'N' &&
+                calificacion != 'G' && calificacion != 'D');
+
+        return calificacion;
+    }
+
+    /*
+     * Lee una pais.
+     * Salida: String pais.
+     * Postcondiciones: asociado al nombre devuelve un String que es el nombre del pais.
+     * Cabecera: public String LeerPais()
+     * */
+    public String LeerPais(){
+        Scanner teclado = new Scanner(System.in);
+        String pais;
+
+        System.out.println("Dime el pais");
+        pais = teclado.nextLine();
+
+        return pais;
+    }
 }
