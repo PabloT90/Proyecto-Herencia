@@ -9,7 +9,7 @@ public class Utilidades {
     * Postcondiciones: nada, solo muestra en pantalla.
     * Cabecera: public void MostrarMenuPrincipal()
     * */
-    public void mostrarMenuPrincipal(){
+    public void MostrarMenuPrincipal(){
         System.out.println("1) Calcular internos totales.");
         System.out.println("2) Voluntarios en guerra.");
         System.out.println("3) Campos segun calificacion.");
