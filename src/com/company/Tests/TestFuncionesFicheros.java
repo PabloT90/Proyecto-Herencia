@@ -41,9 +41,14 @@ public class TestFuncionesFicheros {
         }
 
         //volcarFicheroEnArray
-        array = (CampamentoImpl[]) funcion.volcarFicheroEnArray("Prueba.dat");
+        array = funcion.volcarFicheroEnArray("Prueba.dat");
         for(int i = 0; i < array.length; i++){
             System.out.println(array[i].toString());
         }
+
+        //numeroRegistrosFichero
+        System.out.println(funcion.numeroRegistrosFichero("Prueba.dat"));
+
+        //
     }
 }

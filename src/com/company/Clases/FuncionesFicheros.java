@@ -1,7 +1,6 @@
 package com.company.Clases;
 
 import java.io.*;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class FuncionesFicheros {
@@ -20,6 +19,12 @@ public class FuncionesFicheros {
     * Postcondiciones: La función devuelve un número entero asociado al
     * nombre, 0 si se ha creado el fichero o -1 si el fichero ya existe.
     * */
+    /**
+     * Esta función crea un fichero binario en una ruta específica.
+     * @param direccionFichero Path del fichero.
+     * @return validez 0 si se ha creado el fichero o -1 en caso contrario.
+     * @throws IOException al ocurrir un error durante la entrada de datos.
+     */
     public int crearFicheroBinario(String direccionFichero){
         int validez = -1;
         File fichero = new File(direccionFichero);
@@ -62,6 +67,12 @@ public class FuncionesFicheros {
     * nombre, 0 si se ha ordenado el fichero de campamentos o -1 si el fichero
     * no existe.
     * */
+    /**
+     * Esta función permite ordenar un fichero binario
+     * de Campamentos por país y nombre de la organización.
+     * @param direccionFichero Path del fichero.
+     * @return validez 0 si se ha ordenado el fichero o -1 en caso contrario.
+     */
     public int ordenarPorPaisYNombre(String direccionFichero){
         int validez = -1;
         File fichero = new File(direccionFichero);
@@ -92,7 +103,7 @@ public class FuncionesFicheros {
     * Postcondiciones: La función devuelve un array del tipo <T> asociado al nombre. Que
     * contiene los datos del fichero.
     * */
-    public <T> T[] volcarFicheroEnArray(String direccionFichero){
+    /*public <T> T[] volcarFicheroEnArray(String direccionFichero){
         T[] array = (T[]) Array.newInstance(CampamentoImpl, numeroRegistrosFichero(direccionFichero));
         //T[] array = (T[]) new Object[numeroRegistrosFichero(direccionFichero)];
         FileInputStream fis = null;
@@ -120,6 +131,59 @@ public class FuncionesFicheros {
             }
         }
         return array;
+    }*/
+    /*
+     * Interfaz
+     * Nombre: volcarFicheroEnArray
+     * Comentario: Esta función permite volcar los datos de un fichero
+     * en un array.
+     * Cabecera: public CampamentoImpl[] volcarFicheroEnArray(String direccionFichero)
+     * Entrada:
+     *   -Cadena direccionFichero
+     * Salida:
+     *   -CampamentoImpl[] array
+     * Precondiciones:
+     *   -el fichero debe existir.
+     *   -la estructura del fichero debe ser igual al tipo CampamentoImpl.
+     * Postcondiciones: La función devuelve un array del tipo CampamentoImpl asociado al nombre. Que
+     * contiene los datos del fichero.
+     * */
+    /**
+     * Esta función permite volcar los datos de un fichero en un array.
+     * @param direccionFichero Path del fichero.
+     * @return array Array de CampamentoImpl.
+     * @throws FileNotFoundException en caso de no encontrar un archivo.
+     * @throws EOFException al llegar al fin de fichero.
+     * @throws IOException al ocurrir un error durante la salida de datos.
+     * @throws ClassNotFoundException si no se encuentra la clase de un objeto serializado.
+     */
+    public CampamentoImpl[] volcarFicheroEnArray(String direccionFichero){
+        CampamentoImpl[] array = new CampamentoImpl[numeroRegistrosFichero(direccionFichero)];
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        try{
+            fis = new FileInputStream(direccionFichero);//Volcamos los datos del archivo en el array.
+            ois = new ObjectInputStream(fis);
+            for(int i = 0; i < array.length; i++){
+                array[i] = (CampamentoImpl) ois.readObject();
+            }
+        }catch (FileNotFoundException error1) {
+            error1.printStackTrace();
+        }catch (EOFException finDeFichero){
+            finDeFichero.printStackTrace();
+        }catch (IOException error2){
+            error2.printStackTrace();
+        }catch (ClassNotFoundException error3){
+            error3.printStackTrace();
+        }finally {
+            try {
+                ois.close();
+                fis.close();
+            }catch (IOException error){
+                error.printStackTrace();
+            }
+        }
+        return array;
     }
 
     /*
@@ -134,6 +198,13 @@ public class FuncionesFicheros {
     *   -Cadena direccionFichero
     * Postcondiciones: La función vuelca los datos de un array en el fichero.
     * */
+    /**
+     * Esta función permite volcar los datos de un array en un fichero.
+     * @param direccionFichero Path del fichero.
+     * @param array T[]
+     * @throws FileNotFoundException en caso de no encontrar un archivo.
+     * @throws IOException al ocurrir un error durante la salida de datos.
+     */
     public <T> void volcarArrayEnFichero(T[] array, String direccionFichero){
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
@@ -216,5 +287,59 @@ public class FuncionesFicheros {
             }
         }
         return numeroRegistros;
+    }
+
+    /*
+    * Interfaz
+    * Nombre: mostrarFichero
+    * Comentario: Esta función permite mostrar un fichero binario por
+    * pantalla.
+    * Cabecera: public void mostrarFichero(String direccionFichero)
+    * Entrada:
+    *   -Cadena direccionFichero
+    * Postcondiciones: La función muestra el contenido de un fichero por pantalla.
+    * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
+    * Si ocurre algún error durante la salida de datos se lanzará IOException.
+    * Si se llega a final de fichero se lanzará EOFExepcion.
+    * Si no se encuentra la clase de un objeto serializado se lanzará ClassNotFoundException.
+    * */
+    /**
+     * Esta función permite mostrar un fichero binario por pantalla.
+     * @param direccionFichero Path del fichero.
+     * @throws FileNotFoundException en caso de no encontrar un archivo.
+     * @throws EOFException al llegar al fin de fichero.
+     * @throws IOException al ocurrir un error durante la salida de datos.
+     * @throws ClassNotFoundException si no se encuentra la clase de un objeto serializado.
+     */
+    public void mostrarFichero(String direccionFichero){
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        CampamentoImpl campamento = null;
+        try {
+            fis = new FileInputStream(direccionFichero);
+            ois = new ObjectInputStream(fis);
+
+            while(true) {//Mientras no sea fin de fichero
+                campamento = (CampamentoImpl) ois.readObject();
+                System.out.println(campamento);
+            }
+        }
+        catch(EOFException finDeFichero) {
+        }catch (FileNotFoundException error1){
+            error1.printStackTrace();
+        }
+        catch (IOException error2) {
+            error2.printStackTrace();
+        }
+        catch (ClassNotFoundException error3) {
+            error3.printStackTrace();
+        }finally {
+            try{
+                ois.close();
+                fis.close();
+            }catch (IOException error){
+                error.printStackTrace();
+            }
+        }
     }
 }
