@@ -49,6 +49,7 @@ public class TestFuncionesFicheros {
         //numeroRegistrosFichero
         System.out.println(funcion.numeroRegistrosFichero("Prueba.dat"));
 
-        //
+        //mostrarFichero
+        funcion.mostrarFichero("Prueba.dat");
     }
 }
