@@ -55,7 +55,7 @@ public class Main {
         int opcion;
         int opcionVoluntario;
         String pais;
-        String rutaFichero = "";
+        String rutaFichero = "Prueba2.dat";
         boolean paisEncontrado;
         Gestora gestora = new Gestora();
         Utilidades util = new Utilidades();
