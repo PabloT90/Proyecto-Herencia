@@ -324,20 +324,52 @@ public class FuncionesFicheros {
                 campamento = (CampamentoImpl) ois.readObject();
                 System.out.println(campamento);
             }
-        }
-        catch(EOFException finDeFichero) {
+        }catch(EOFException finDeFichero) {
         }catch (FileNotFoundException error1){
             error1.printStackTrace();
-        }
-        catch (IOException error2) {
+        }catch (IOException error2) {
             error2.printStackTrace();
-        }
-        catch (ClassNotFoundException error3) {
+        }catch (ClassNotFoundException error3) {
             error3.printStackTrace();
         }finally {
             try{
                 ois.close();
                 fis.close();
+            }catch (IOException error){
+                error.printStackTrace();
+            }
+        }
+    }
+
+    /*
+     * Interfaz
+     * Nombre: insertarCampamento
+     * Comentario: Esta función permite insertar un campamento en el fichero Prueba.dat
+     * Cabecera: public void insertarCampamento(CampamentoImpl camp)
+     * Entrada:
+     *   -CampamentoImpl camp
+     * Postcondiciones: El campamento es insertado en el fichero Prueba2.dat.
+     * Lanzará IOException en caso de ocurrir algún error durante la entrada de datos.
+     * */
+    /**
+     * Inserta un campamento en el archivo Prueba2.dat
+     * @param CampamentoImpl campamento que queremos insertar.
+     * @throws IOException Si ocurre algún error durante la entrada de datos.
+     */
+    public void insertarCampamento(CampamentoImpl camp){
+        Clases.MyObjectOutputStream moos = null;
+        FileOutputStream fos = null;
+        File fichero = new File("Prueba2.dat");
+        try{
+            fos = new FileOutputStream(fichero, true);
+            moos = new Clases.MyObjectOutputStream(fos);
+            moos.writeObject(camp);
+        } catch(IOException error){
+            error.printStackTrace();
+        }finally {
+            try {
+                moos.close();
+                fos.close();
             }catch (IOException error){
                 error.printStackTrace();
             }

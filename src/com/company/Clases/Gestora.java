@@ -275,8 +275,9 @@ public class Gestora {
 
             while(true) {
                 camp = (CampamentoImpl) ois.readObject();
-                if (camp.getPais() == pais) {
-                    numVoluntarios += numVoluntarios;
+                if (camp.getPais().equals(pais)) {
+                    numVoluntarios += camp.getNumeroVoluntarios();
+                    System.out.println("He entrado");
                 }
             }
         }catch(FileNotFoundException error1){
