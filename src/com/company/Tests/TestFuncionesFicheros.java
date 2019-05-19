@@ -13,7 +13,7 @@ import java.util.Arrays;
 public class TestFuncionesFicheros {
     public static void main (String [] args){
         FuncionesFicheros funcion = new FuncionesFicheros();
-        CampamentoImpl[] array = null, array2 = null;
+        CampamentoImpl[] array = null;
 
         //crearFicheroBinario
         System.out.println(funcion.crearFicheroBinario("Prueba.dat"));
