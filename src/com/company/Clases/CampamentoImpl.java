@@ -1,5 +1,5 @@
 package com.company.Clases;
-import com.company.Excepciones.ExcepcionCampamento;
+
 
 /*
 Propiedades basicas
@@ -80,18 +80,6 @@ public class CampamentoImpl extends OrganizacionImpl implements Serializable {
             this.guerra = guerra;
     }
 
-    @Override
-    //No es la misma cabecera
-    //No te deja hacerlo puesto que no es la misma cabecera
-    //Tenemos que buscar alguna solucion, quizas sea tiempo de ponerlo en el constructor
-    public void setTotalInternos(int totalInternos) throws ExcepcionCampamento {
-        if(totalInternos >= 20 && totalInternos <= 50) {
-            super.setTotalInternos(totalInternos);
-        }
-        else {
-            throw new ExcepcionCampamento("TotalInternos tiene que ser entre 20 y 50");
-        }
-    }
 
     //toString
     @Override
