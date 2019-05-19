@@ -21,6 +21,7 @@ public class TestFuncionesFicheros {
         //Insertamos un par de campamentos en el fichero
         CampamentoImpl c1 = new CampamentoImpl("Angola","Tartulia", 1, 1,'O','N');
         CampamentoImpl c2 = new CampamentoImpl("Afghan","King", 39, 7,'I','P');
+        CampamentoImpl c3 = new CampamentoImpl("Afghan","Asta", 23, 4,'L','Q');
 
         FileOutputStream fos = null;
         Clases.MyObjectOutputStream moos = null;
@@ -29,6 +30,7 @@ public class TestFuncionesFicheros {
             moos = new MyObjectOutputStream(fos);
             moos.writeObject(c1);
             moos.writeObject(c2);
+            moos.writeObject(c3);
         }catch (FileNotFoundException error1){
             error1.printStackTrace();
         }catch (IOException error2){
