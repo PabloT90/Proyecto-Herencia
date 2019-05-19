@@ -7,11 +7,13 @@ import com.company.Clases.FuncionesFicheros;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 public class TestFuncionesFicheros {
     public static void main (String [] args){
         FuncionesFicheros funcion = new FuncionesFicheros();
-        CampamentoImpl[] array = null;
+        CampamentoImpl[] array = null, array2 = null;
 
         //crearFicheroBinario
         System.out.println(funcion.crearFicheroBinario("Prueba.dat"));
@@ -50,6 +52,20 @@ public class TestFuncionesFicheros {
         System.out.println(funcion.numeroRegistrosFichero("Prueba.dat"));
 
         //mostrarFichero
+        funcion.mostrarFichero("Prueba.dat");
+
+        System.out.println();
+
+        Arrays.sort(array);//Ordenamos el array
+
+        //volcarArrayEnFichero
+        funcion.volcarArrayEnFichero(array, "Prueba2.dat");
+        funcion.mostrarFichero("Prueba2.dat");
+
+        System.out.println();
+
+        //ordenarPorPaisYNombre
+        System.out.println(funcion.ordenarPorPaisYNombre("Prueba.dat"));
         funcion.mostrarFichero("Prueba.dat");
     }
 }

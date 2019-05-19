@@ -79,7 +79,8 @@ public class FuncionesFicheros {
         CampamentoImpl[] array = null;
 
         if(fichero.isFile()){//Si el fichero existe
-            volcarFicheroEnArray(direccionFichero);
+            validez = 0;
+            array = volcarFicheroEnArray(direccionFichero);
             Arrays.sort(array);//Ordenará el array sacendentemente teniendo en cuenta la función compareTo de la clase OrganizacionImpl.
             volcarArrayEnFichero(array, direccionFichero);
         }
