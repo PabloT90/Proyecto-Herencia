@@ -144,7 +144,6 @@ public class FuncionesFicheros {
      * Salida:
      *   -CampamentoImpl[] array
      * Precondiciones:
-     *   -el fichero debe existir.
      *   -la estructura del fichero debe ser igual al tipo CampamentoImpl.
      * Postcondiciones: La función devuelve un array del tipo CampamentoImpl asociado al nombre. Que
      * contiene los datos del fichero.
@@ -153,7 +152,7 @@ public class FuncionesFicheros {
      * Esta función permite volcar los datos de un fichero en un array.
      * @param direccionFichero Path del fichero.
      * @return array Array de CampamentoImpl.
-     * @throws FileNotFoundException en caso de no encontrar un archivo.
+     * @throws FileNotFoundException en caso de no encontrar un archivo.    //Si el fichero no existe salta esta excepción
      * @throws EOFException al llegar al fin de fichero.
      * @throws IOException al ocurrir un error durante la salida de datos.
      * @throws ClassNotFoundException si no se encuentra la clase de un objeto serializado.
