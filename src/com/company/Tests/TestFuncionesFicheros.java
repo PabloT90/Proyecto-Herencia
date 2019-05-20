@@ -21,8 +21,8 @@ public class TestFuncionesFicheros {
 
         //Insertamos un par de campamentos en el fichero
         CampamentoImpl c1 = new CampamentoImpl("Angola","Tartulia", 1, 1,'O','N');
-        CampamentoImpl c2 = new CampamentoImpl("Zfghan","King", 39, 7,'I','P');
-        CampamentoImpl c3 = new CampamentoImpl("Afghan","Asta", 23, 4,'L','Q');
+        CampamentoImpl c2 = new CampamentoImpl("Zfghan","King", 39, 7,'I','S');
+        CampamentoImpl c3 = new CampamentoImpl("Afghan","Asta", 23, 4,'L','S');
 
         FileOutputStream fos = null;
         Clases.MyObjectOutputStream moos = null;
