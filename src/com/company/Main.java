@@ -47,8 +47,8 @@ Analisis
  Fin
  */
 
-import com.company.Clases.Gestora;
-import com.company.Clases.Utilidades;
+import com.company.Clases.*;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -58,6 +58,7 @@ public class Main {
         String rutaFichero = "Prueba2.dat";
         boolean paisEncontrado;
         Gestora gestora = new Gestora();
+        resguardos resguardo = new resguardos();
         Utilidades util = new Utilidades();
         char calificacion;
 
@@ -71,6 +72,7 @@ public class Main {
                     pais = util.LeerPais();
                     paisEncontrado = gestora.paisesCorrectos(rutaFichero, pais);
                     if(paisEncontrado) {
+                        //System.out.println(resguardo.calcularInternosTotales(rutaFichero, pais));
                         System.out.println(gestora.calcularInternosTotales(rutaFichero,pais));
                     }else {
                         System.out.println("No hay ningun pais en el fichero");
@@ -86,11 +88,13 @@ public class Main {
                         switch (opcionVoluntario) {
                             case 1:
                                 //System.out.println("VoluntariosNoEnGuerra");
+                                //System.out.println(resguardo.voluntariosNoEnGuerra(rutaFichero));
                                 System.out.println(gestora.voluntariosNoEnGuerra(rutaFichero));
                                 break;
 
                             case 2:
                                 //System.out.println("VoluntariosEnGuerra");
+                                //System.out.println(resguardo.voluntariosEnGuerra(rutaFichero));
                                 System.out.println(gestora.voluntariosEnGuerra(rutaFichero));
                                 break;
                         }
@@ -99,15 +103,18 @@ public class Main {
 
                 case 3:
                     calificacion = util.LeerValidarCalificacion();
+                    //resguardo.camposSegunCalificacion(calificacion, rutaFichero);
                     gestora.camposSegunCalificacion(calificacion, rutaFichero);
                     break;
 
                 case 4:
+                    //resguardo.camposEnGuerra(rutaFichero);
                     gestora.camposEnGuerra(rutaFichero);
                     break;
 
                 case 5:
                     pais = util.LeerPais();
+                    //System.out.println(resguardo.totalVoluntarios(rutaFichero, pais));
                     System.out.println(gestora.totalVoluntarios(rutaFichero, pais));
                     break;
             }

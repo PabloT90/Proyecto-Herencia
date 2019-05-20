@@ -1,8 +1,5 @@
 package com.company.Clases;
 
-
-
-import java.io.*;
 import java.util.Scanner;
 
 public class Utilidades {
