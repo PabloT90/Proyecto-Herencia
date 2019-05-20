@@ -87,7 +87,7 @@ public class resguardos {
     }
 
     /*
-     * Muestra los campos en guerra y lso paises al que pertenecen.
+     * Muestra los campos en guerra y los paises al que pertenecen.
      * Entrada:
      *   - String ruta.
      * Precondiciones: el fichero debe estar creado. Es decir, que es en la ruta especificada exista.
