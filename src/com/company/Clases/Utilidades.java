@@ -76,7 +76,7 @@ public class Utilidades {
     Salida: No hay
     E/S: No hay
     Postcondiciones: Se muestra el fichero completo
-    */
+
     public void mostrarFichero(String ruta) {
         try {
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(ruta));
@@ -98,6 +98,7 @@ public class Utilidades {
             err.printStackTrace();
         }
     }
+    */
 
     /*
     * Lee y valida una calificacion.
