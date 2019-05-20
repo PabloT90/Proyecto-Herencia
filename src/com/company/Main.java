@@ -108,7 +108,7 @@ public class Main {
 
                 case 5:
                     pais = util.LeerPais();
-                    gestora.totalVoluntarios(rutaFichero, pais);
+                    System.out.println(gestora.totalVoluntarios(rutaFichero, pais));
                     break;
             }
         }while(opcion != 0);

@@ -259,15 +259,17 @@ public class Gestora {
     }
 
     /*
-     * Muestra el total de voluntarios segun un pais recibido como parametro.
+     * Calcula el numero de voluntarios de un pais.
      * Entrada:
      *   - String ruta.
      *   - String pais
+     * Salida:
+     *   -numVoluntarios int
      * Precondiciones: el fichero debe estar creado. Es decir, que es en la ruta especificada exista.
-     * Postcondiciones: nada, solo muestra en pantalla.
-     * Cabecera: public void totalVoluntarios(String ruta, String pais)
+     * Postcondiciones: asociado al nombre devuelve el numero de voluntarios que hay en un pais.
+     * Cabecera: public int totalVoluntarios(String ruta, String pais)
      * */
-    public void totalVoluntarios(String ruta, String pais){
+    public int totalVoluntarios(String ruta, String pais){
         CampamentoImpl camp;
         ObjectInputStream ois = null;
         int numVoluntarios = 0;
@@ -288,12 +290,12 @@ public class Gestora {
         }catch(ClassNotFoundException error3){
             error3.printStackTrace();
         }finally{
-            System.out.println("Numero de voluntarios: "+ numVoluntarios);
             try{
                 ois.close();
             }catch (IOException error){
                 error.printStackTrace();
             }
         }
+        return numVoluntarios;
     }
 }
