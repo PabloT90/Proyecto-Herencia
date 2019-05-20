@@ -200,7 +200,7 @@ public class FuncionesFicheros {
     /**
      * Esta función permite volcar los datos de un array en un fichero.
      * @param direccionFichero Path del fichero.
-     * @param array T[]
+     * @param array T[] Array de objetos
      */
     public <T> void volcarArrayEnFichero(T[] array, String direccionFichero){
         FileOutputStream fos = null;
@@ -325,17 +325,17 @@ public class FuncionesFicheros {
     /*
      * Interfaz
      * Nombre: insertarCampamento
-     * Comentario: Esta función permite insertar un campamento en el fichero Prueba.dat
+     * Comentario: Esta función permite insertar un campamento en el fichero pasado por parametro
      * Cabecera: public void insertarCampamento(CampamentoImpl camp, String ruta)
      * Entrada:
      *   -CampamentoImpl camp
      *   -String ruta
      * Precondiciones: el fichero debe existir en la ruta especificada.
-     * Postcondiciones: El campamento es insertado en el fichero Prueba2.dat.
+     * Postcondiciones: El campamento es insertado en el fichero
      * Lanzará IOException en caso de ocurrir algún error durante la entrada de datos.
      * */
     /**
-     * Inserta un campamento en el archivo Prueba2.dat
+     * Inserta un campamento en el archivo que se pasa la ruta por parametro
      * @param camp Campamento que queremos insertar.
      * @param ruta Ruta del fichero.
      */
