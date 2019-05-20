@@ -18,12 +18,12 @@ public class FuncionesFicheros {
     *   -La ruta debe ser correcta.
     * Postcondiciones: La función devuelve un número entero asociado al
     * nombre, 0 si se ha creado el fichero o -1 si el fichero ya existe.
+    * IOException al ocurrir un error durante la entrada de datos.
     * */
     /**
      * Esta función crea un fichero binario en una ruta específica.
      * @param direccionFichero Path del fichero.
      * @return validez 0 si se ha creado el fichero o -1 en caso contrario.
-     * @throws IOException al ocurrir un error durante la entrada de datos.
      */
     public int crearFicheroBinario(String direccionFichero){
         int validez = -1;
@@ -147,15 +147,15 @@ public class FuncionesFicheros {
      *   -la estructura del fichero debe ser igual al tipo CampamentoImpl.
      * Postcondiciones: La función devuelve un array del tipo CampamentoImpl asociado al nombre. Que
      * contiene los datos del fichero.
+     * FileNotFoundException en caso de no encontrar un archivo.    //Si el fichero no existe salta esta excepción
+     * EOFException al llegar al fin de fichero.
+     * IOException al ocurrir un error durante la salida de datos.
+     * ClassNotFoundException si no se encuentra la clase de un objeto serializado.
      * */
     /**
      * Esta función permite volcar los datos de un fichero en un array.
      * @param direccionFichero Path del fichero.
      * @return array Array de CampamentoImpl.
-     * @throws FileNotFoundException en caso de no encontrar un archivo.    //Si el fichero no existe salta esta excepción
-     * @throws EOFException al llegar al fin de fichero.
-     * @throws IOException al ocurrir un error durante la salida de datos.
-     * @throws ClassNotFoundException si no se encuentra la clase de un objeto serializado.
      */
     public CampamentoImpl[] volcarFicheroEnArray(String direccionFichero){
         CampamentoImpl[] array = new CampamentoImpl[numeroRegistrosFichero(direccionFichero)];
@@ -197,13 +197,13 @@ public class FuncionesFicheros {
     *   -T[] array
     *   -Cadena direccionFichero
     * Postcondiciones: La función vuelca los datos de un array en el fichero.
+    * FileNotFoundException en caso de no encontrar un archivo.
+    * IOException al ocurrir un error durante la salida de datos.
     * */
     /**
      * Esta función permite volcar los datos de un array en un fichero.
      * @param direccionFichero Path del fichero.
      * @param array T[]
-     * @throws FileNotFoundException en caso de no encontrar un archivo.
-     * @throws IOException al ocurrir un error durante la salida de datos.
      */
     public <T> void volcarArrayEnFichero(T[] array, String direccionFichero){
         FileOutputStream fos = null;
@@ -244,16 +244,11 @@ public class FuncionesFicheros {
      * Si ocurre algún error durante la salida de datos se lanzará IOException.
      * Si se llega a final de fichero se lanzará EOFExepcion.
      * Si no se encuentra la clase de un objeto serializado se lanzará ClassNotFoundException.
-     *
      * */
     /**
      * Obtiene el número de registros de un fichero.
      * @param direccionFichero Path del fichero.
      * @return Número de registros del fichero.
-     * @throws FileNotFoundException en caso de no encontrar un archivo.
-     * @throws EOFException al llegar al fin de fichero.
-     * @throws IOException al ocurrir un error durante la salida de datos.
-     * @throws ClassNotFoundException si no se encuentra la clase de un objeto serializado.
      */
     public int numeroRegistrosFichero(String direccionFichero) {
         int numeroRegistros = 0;
@@ -306,10 +301,6 @@ public class FuncionesFicheros {
     /**
      * Esta función permite mostrar un fichero binario por pantalla.
      * @param direccionFichero Path del fichero.
-     * @throws FileNotFoundException en caso de no encontrar un archivo.
-     * @throws EOFException al llegar al fin de fichero.
-     * @throws IOException al ocurrir un error durante la salida de datos.
-     * @throws ClassNotFoundException si no se encuentra la clase de un objeto serializado.
      */
     public void mostrarFichero(String direccionFichero){
         FileInputStream fis = null;
@@ -356,7 +347,6 @@ public class FuncionesFicheros {
      * Inserta un campamento en el archivo Prueba2.dat
      * @param camp Campamento que queremos insertar.
      * @param ruta Ruta del fichero.
-     * @throws IOException Si ocurre algún error durante la entrada de datos.
      */
     public void insertarCampamento(CampamentoImpl camp, String ruta){
         Clases.MyObjectOutputStream moos = null;

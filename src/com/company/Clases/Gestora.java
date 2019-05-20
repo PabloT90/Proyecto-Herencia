@@ -13,7 +13,11 @@ public class Gestora {
              - String pais //Es el pais en el que queremos buscar
     Salida: - int total //El total de internos del pais en cuestion
     E/S: No hay
-    Postcondiciones: Asociado al nombre. Es el total de internos del pais que se ha introducido por parametros
+    Postcondiciones: Asociado al nombre. Es el total de internos del pais que se ha introducido por parametros.
+    * FileNotFoundException en caso de no encontrar un archivo.    //Si el fichero no existe salta esta excepción
+    * EOFException al llegar al fin de fichero.
+    * IOException al ocurrir un error durante la salida de datos.
+    * ClassNotFoundException si no se encuentra la clase de un objeto serializado.
     */
     public int calcularInternosTotales(String ruta, String pais) {
         int total = 0;
@@ -59,6 +63,10 @@ public class Gestora {
     Salida: - int total //El total de voluntarios que no estan en guerra
     E/S: No hay
     Postcondiciones: Asociado al nombre. El total de voluntarios que no estan en guerra
+    FileNotFoundException en caso de no encontrar un archivo.    //Si el fichero no existe salta esta excepción
+    EOFException al llegar al fin de fichero.
+    IOException al ocurrir un error durante la salida de datos.
+    ClassNotFoundException si no se encuentra la clase de un objeto serializado.
     */
     public int voluntariosNoEnGuerra(String ruta) {
         int total = 0;
@@ -104,6 +112,10 @@ public class Gestora {
     Salida: - int total //El total de voluntarios que estan en guerra
     E/S: No hay
     Postcondiciones: Asociado al nombre. El total de voluntarios que estan en guerra
+    FileNotFoundException en caso de no encontrar un archivo.    //Si el fichero no existe salta esta excepción
+    EOFException al llegar al fin de fichero.
+    IOException al ocurrir un error durante la salida de datos.
+    ClassNotFoundException si no se encuentra la clase de un objeto serializado.
     */
     public int voluntariosEnGuerra(String ruta) {
         int total = 0;
@@ -147,7 +159,11 @@ public class Gestora {
     Entrada: - String ruta //Es la ruta donde se encuentra el fichero
     Salida: - boolean paisEncontrado //True si el pais es encontrado y false si no lo esta
     E/S: No hay
-    Postcondiciones: Asociado al nombre. Si el pais es encontrado devolvera true y si no es encontrado sera false
+    Postcondiciones: Asociado al nombre. Si el pais es encontrado devolvera true y si no es encontrado sera false.
+    FileNotFoundException en caso de no encontrar un archivo.    //Si el fichero no existe salta esta excepción
+    EOFException al llegar al fin de fichero.
+    IOException al ocurrir un error durante la salida de datos.
+    ClassNotFoundException si no se encuentra la clase de un objeto serializado.
     */
     public boolean paisesCorrectos(String ruta, String pais) {
         boolean paisEncontrado = false;
@@ -190,7 +206,11 @@ public class Gestora {
      *   - String pais
      * Precondiciones: el fichero debe estar creado. Es decir, que es en la ruta especificada exista.
      * Postcondiciones: nada, solo muestra en pantalla.
-     * Cabecera: public void camposSegunCalificacion(char calificacion, String ruta)
+     * Cabecera: public void camposSegunCalificacion(char calificacion, String ruta).
+     * FileNotFoundException en caso de no encontrar un archivo.    //Si el fichero no existe salta esta excepción
+     * EOFException al llegar al fin de fichero.
+     * IOException al ocurrir un error durante la salida de datos.
+     * ClassNotFoundException si no se encuentra la clase de un objeto serializado.
      * */
     public void camposSegunCalificacion(char calificacion, String ruta){
         CampamentoImpl camp;
@@ -227,7 +247,11 @@ public class Gestora {
      *   - String ruta.
      * Precondiciones: el fichero debe estar creado. Es decir, que es en la ruta especificada exista.
      * Postcondiciones: nada, solo muestra en pantalla.
-     * Cabecera: public void camposEnGuerra(String ruta)
+     * Cabecera: public void camposEnGuerra(String ruta).
+     * FileNotFoundException en caso de no encontrar un archivo.    //Si el fichero no existe salta esta excepción
+     * EOFException al llegar al fin de fichero.
+     * IOException al ocurrir un error durante la salida de datos.
+     * ClassNotFoundException si no se encuentra la clase de un objeto serializado.
      * */
     public void camposEnGuerra(String ruta){
         CampamentoImpl camp;
@@ -268,6 +292,10 @@ public class Gestora {
      * Precondiciones: el fichero debe estar creado. Es decir, que es en la ruta especificada exista.
      * Postcondiciones: asociado al nombre devuelve el numero de voluntarios que hay en un pais.
      * Cabecera: public int totalVoluntarios(String ruta, String pais)
+     * FileNotFoundException en caso de no encontrar un archivo.    //Si el fichero no existe salta esta excepción
+     * EOFException al llegar al fin de fichero.
+     * IOException al ocurrir un error durante la salida de datos.
+     * ClassNotFoundException si no se encuentra la clase de un objeto serializado.
      * */
     public int totalVoluntarios(String ruta, String pais){
         CampamentoImpl camp;
