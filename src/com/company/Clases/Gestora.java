@@ -8,7 +8,7 @@ public class Gestora {
     Comentario: Este subprograma calcula los internos totales de un pais
     Cabecera: public int calcularInternosTotales(String ruta, String pais)
     Precondiciones: - El fichero (ruta) debe estar creado
-                    - El pais debe existir
+                    - El pais debe existir en el fichero
     Entrada: - String ruta //Es la ruta donde se encuentra el fichero
              - String pais //Es el pais en el que queremos buscar
     Salida: - int total //El total de internos del pais en cuestion
