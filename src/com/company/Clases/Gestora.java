@@ -7,14 +7,13 @@ public class Gestora {
     Nombre: CalcularInternosTotales
     Comentario: Este subprograma calcula los internos totales de un pais
     Cabecera: public int calcularInternosTotales(String ruta, String pais)
-    Precondiciones: - El fichero (ruta) debe estar creado
-                    - El pais debe existir en el fichero
+    Precondiciones: - El fichero (ruta) debe estar creado en la ruta especificada.
+                    - El pais debe existir en el fichero.
     Entrada: - String ruta //Es la ruta donde se encuentra el fichero
              - String pais //Es el pais en el que queremos buscar
     Salida: - int total //El total de internos del pais en cuestion
     E/S: No hay
     Postcondiciones: Asociado al nombre. Es el total de internos del pais que se ha introducido por parametros.
-    * FileNotFoundException en caso de no encontrar un archivo.    //Si el fichero no existe salta esta excepción
     * EOFException al llegar al fin de fichero.
     * IOException al ocurrir un error durante la salida de datos.
     * ClassNotFoundException si no se encuentra la clase de un objeto serializado.
@@ -35,8 +34,6 @@ public class Gestora {
             }
         }catch(EOFException err) {
             System.out.println();
-        }catch (FileNotFoundException err) {
-            err.printStackTrace();
         }catch (IOException err) {
             err.printStackTrace();
         }catch (ClassNotFoundException err) {
@@ -63,7 +60,6 @@ public class Gestora {
     Salida: - int total //El total de voluntarios que no estan en guerra
     E/S: No hay
     Postcondiciones: Asociado al nombre. El total de voluntarios que no estan en guerra
-    FileNotFoundException en caso de no encontrar un archivo.    //Si el fichero no existe salta esta excepción
     EOFException al llegar al fin de fichero.
     IOException al ocurrir un error durante la salida de datos.
     ClassNotFoundException si no se encuentra la clase de un objeto serializado.
@@ -84,8 +80,6 @@ public class Gestora {
             }
         }catch(EOFException err) {
             System.out.println();
-        }catch (FileNotFoundException err) {
-            err.printStackTrace();
         }catch (IOException err) {
             err.printStackTrace();
         }catch (ClassNotFoundException err) {
@@ -112,7 +106,6 @@ public class Gestora {
     Salida: - int total //El total de voluntarios que estan en guerra
     E/S: No hay
     Postcondiciones: Asociado al nombre. El total de voluntarios que estan en guerra
-    FileNotFoundException en caso de no encontrar un archivo.    //Si el fichero no existe salta esta excepción
     EOFException al llegar al fin de fichero.
     IOException al ocurrir un error durante la salida de datos.
     ClassNotFoundException si no se encuentra la clase de un objeto serializado.
@@ -132,8 +125,6 @@ public class Gestora {
             }
         }catch(EOFException err) {
             System.out.println();
-        }catch (FileNotFoundException err) {
-            err.printStackTrace();
         }catch (IOException err) {
             err.printStackTrace();
         }catch (ClassNotFoundException err) {
@@ -160,7 +151,6 @@ public class Gestora {
     Salida: - boolean paisEncontrado //True si el pais es encontrado y false si no lo esta
     E/S: No hay
     Postcondiciones: Asociado al nombre. Si el pais es encontrado devolvera true y si no es encontrado sera false.
-    FileNotFoundException en caso de no encontrar un archivo.    //Si el fichero no existe salta esta excepción
     EOFException al llegar al fin de fichero.
     IOException al ocurrir un error durante la salida de datos.
     ClassNotFoundException si no se encuentra la clase de un objeto serializado.
@@ -181,8 +171,6 @@ public class Gestora {
             }
         }catch(EOFException err) {
             System.out.println();
-        }catch (FileNotFoundException err) {
-            err.printStackTrace();
         }catch (IOException err) {
             err.printStackTrace();
         }catch (ClassNotFoundException err) {
@@ -207,7 +195,6 @@ public class Gestora {
      * Precondiciones: el fichero debe estar creado. Es decir, que es en la ruta especificada exista.
      * Postcondiciones: nada, solo muestra en pantalla.
      * Cabecera: public void camposSegunCalificacion(char calificacion, String ruta).
-     * FileNotFoundException en caso de no encontrar un archivo.    //Si el fichero no existe salta esta excepción
      * EOFException al llegar al fin de fichero.
      * IOException al ocurrir un error durante la salida de datos.
      * ClassNotFoundException si no se encuentra la clase de un objeto serializado.
@@ -225,8 +212,6 @@ public class Gestora {
                     System.out.println(camp.toString());
                 }
             }
-        }catch(FileNotFoundException error1){
-            error1.printStackTrace();
         }catch (EOFException error){
         }catch (IOException error2){
             error2.printStackTrace();
@@ -248,7 +233,6 @@ public class Gestora {
      * Precondiciones: el fichero debe estar creado. Es decir, que es en la ruta especificada exista.
      * Postcondiciones: nada, solo muestra en pantalla.
      * Cabecera: public void camposEnGuerra(String ruta).
-     * FileNotFoundException en caso de no encontrar un archivo.    //Si el fichero no existe salta esta excepción
      * EOFException al llegar al fin de fichero.
      * IOException al ocurrir un error durante la salida de datos.
      * ClassNotFoundException si no se encuentra la clase de un objeto serializado.
@@ -266,8 +250,6 @@ public class Gestora {
                     System.out.println(camp.toString() + " Pais: "+ camp.getPais());
                 }
             }
-        }catch(FileNotFoundException error1){
-            error1.printStackTrace();
         }catch (EOFException error){
         }catch (IOException error2){
             error2.printStackTrace();
@@ -292,7 +274,6 @@ public class Gestora {
      * Precondiciones: el fichero debe estar creado. Es decir, que es en la ruta especificada exista.
      * Postcondiciones: asociado al nombre devuelve el numero de voluntarios que hay en un pais.
      * Cabecera: public int totalVoluntarios(String ruta, String pais)
-     * FileNotFoundException en caso de no encontrar un archivo.    //Si el fichero no existe salta esta excepción
      * EOFException al llegar al fin de fichero.
      * IOException al ocurrir un error durante la salida de datos.
      * ClassNotFoundException si no se encuentra la clase de un objeto serializado.
@@ -310,8 +291,6 @@ public class Gestora {
                     numVoluntarios += camp.getNumeroVoluntarios();
                 }
             }
-        }catch(FileNotFoundException error1){
-            error1.printStackTrace();
         }catch (EOFException error){
         }catch (IOException error2){
             error2.printStackTrace();

@@ -147,7 +147,6 @@ public class FuncionesFicheros {
      *   -la estructura del fichero debe ser igual al tipo CampamentoImpl.
      * Postcondiciones: La función devuelve un array del tipo CampamentoImpl asociado al nombre. Que
      * contiene los datos del fichero.
-     * FileNotFoundException en caso de no encontrar un archivo.    //Si el fichero no existe salta esta excepción
      * EOFException al llegar al fin de fichero.
      * IOException al ocurrir un error durante la salida de datos.
      * ClassNotFoundException si no se encuentra la clase de un objeto serializado.
@@ -167,8 +166,6 @@ public class FuncionesFicheros {
             for(int i = 0; i < array.length; i++){
                 array[i] = (CampamentoImpl) ois.readObject();
             }
-        }catch (FileNotFoundException error1) {
-            error1.printStackTrace();
         }catch (EOFException finDeFichero){
             finDeFichero.printStackTrace();
         }catch (IOException error2){
@@ -196,8 +193,8 @@ public class FuncionesFicheros {
     * Entrada:
     *   -T[] array
     *   -Cadena direccionFichero
+    * Precondicion: el fichero debe existir en la ruta especificada.
     * Postcondiciones: La función vuelca los datos de un array en el fichero.
-    * FileNotFoundException en caso de no encontrar un archivo.
     * IOException al ocurrir un error durante la salida de datos.
     * */
     /**
@@ -214,8 +211,6 @@ public class FuncionesFicheros {
             for(int i = 0; i < array.length; i++){
                 oos.writeObject(array[i]);
             }
-        }catch (FileNotFoundException error1){
-            error1.printStackTrace();
         }catch (IOException error2){
             error2.printStackTrace();
         }finally {
@@ -238,9 +233,9 @@ public class FuncionesFicheros {
      *   -Cadena direccionFichero //Es la dirección(Path) del fichero.
      * Salida:
      *   -entero numeroRegistros
+     * Precondiciones: el fichero debe existir en la ruta especificada.
      * Postcondiciones: La función devuelve un número entero asociado al nombre,
      * que es el número de registros que almacena el fichero.
-     * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
      * Si ocurre algún error durante la salida de datos se lanzará IOException.
      * Si se llega a final de fichero se lanzará EOFExepcion.
      * Si no se encuentra la clase de un objeto serializado se lanzará ClassNotFoundException.
@@ -265,8 +260,6 @@ public class FuncionesFicheros {
             }
         }catch (ClassNotFoundException error3){
             error3.printStackTrace();
-        }catch(FileNotFoundException error1) {
-            error1.printStackTrace();
         }catch (EOFException error){
         }catch (IOException error2){
             error2.printStackTrace();
@@ -292,8 +285,8 @@ public class FuncionesFicheros {
     * Cabecera: public void mostrarFichero(String direccionFichero)
     * Entrada:
     *   -Cadena direccionFichero
+    * Precondiciones: el fichero debe existir en la ruta especificada.
     * Postcondiciones: La función muestra el contenido de un fichero por pantalla.
-    * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
     * Si ocurre algún error durante la salida de datos se lanzará IOException.
     * Si se llega a final de fichero se lanzará EOFExepcion.
     * Si no se encuentra la clase de un objeto serializado se lanzará ClassNotFoundException.
@@ -315,8 +308,6 @@ public class FuncionesFicheros {
                 System.out.println(campamento);
             }
         }catch(EOFException finDeFichero) {
-        }catch (FileNotFoundException error1){
-            error1.printStackTrace();
         }catch (IOException error2) {
             error2.printStackTrace();
         }catch (ClassNotFoundException error3) {
