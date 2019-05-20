@@ -39,12 +39,13 @@ Requisitos:
                    - G Grave
                    - D Desesperada
 - guerra (s/n)
-- totalInternos Entre 20 y 50
+- totalInternos Entre 20 y 50 (Se controla desde fuera, pero tambien se podria controlar dentro del constructor)
 
 Metodos anhadidos
 No hay
 
 */
+
 
 import java.io.Serializable;
 
@@ -79,7 +80,6 @@ public class CampamentoImpl extends OrganizacionImpl implements Serializable {
     public void setGuerra(char guerra) {
             this.guerra = guerra;
     }
-
 
     //toString
     @Override

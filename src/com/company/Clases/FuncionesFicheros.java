@@ -344,21 +344,24 @@ public class FuncionesFicheros {
      * Interfaz
      * Nombre: insertarCampamento
      * Comentario: Esta función permite insertar un campamento en el fichero Prueba.dat
-     * Cabecera: public void insertarCampamento(CampamentoImpl camp)
+     * Cabecera: public void insertarCampamento(CampamentoImpl camp, String ruta)
      * Entrada:
      *   -CampamentoImpl camp
+     *   -String ruta
+     * Precondiciones: el fichero debe existir en la ruta especificada.
      * Postcondiciones: El campamento es insertado en el fichero Prueba2.dat.
      * Lanzará IOException en caso de ocurrir algún error durante la entrada de datos.
      * */
     /**
      * Inserta un campamento en el archivo Prueba2.dat
-     * @param CampamentoImpl campamento que queremos insertar.
+     * @param camp Campamento que queremos insertar.
+     * @param ruta Ruta del fichero.
      * @throws IOException Si ocurre algún error durante la entrada de datos.
      */
-    public void insertarCampamento(CampamentoImpl camp){
+    public void insertarCampamento(CampamentoImpl camp, String ruta){
         Clases.MyObjectOutputStream moos = null;
         FileOutputStream fos = null;
-        File fichero = new File("Prueba2.dat");
+        File fichero = new File(ruta);
         try{
             fos = new FileOutputStream(fichero, true);
             moos = new Clases.MyObjectOutputStream(fos);

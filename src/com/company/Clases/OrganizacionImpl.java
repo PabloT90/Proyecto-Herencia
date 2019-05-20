@@ -19,7 +19,6 @@ import java.io.Serializable;
 *   - clone
 * Propiedades compartidas: nada.
 * Restricciones:
-*   - totalInternos no puede ser negativo.
 *   - numeroVoluntarios no puede ser negativo
 *
 * Getter/Setter
