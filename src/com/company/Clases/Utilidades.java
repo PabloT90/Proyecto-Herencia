@@ -15,6 +15,7 @@ public class Utilidades {
         System.out.println("3) Campos segun calificacion.");
         System.out.println("4) Listado de campos en guerra y pais.");
         System.out.println("5) Total voluntarios por pais.");
+        System.out.println("0) Volver atras.");
     }
 
     /*
@@ -43,6 +44,7 @@ public class Utilidades {
     public void MostrarSubMenu(){
         System.out.println("1) Voluntarios que no estan en guerra");
         System.out.println("2) Voluntarios en guerra.");
+        System.out.println("0) Volver atras.");
     }
 
     /*
@@ -108,7 +110,7 @@ public class Utilidades {
         char calificacion;
 
         do{
-            System.out.println("Escribe la calificacion. 'D', 'N', 'G' o 'D'.");
+            System.out.println("Escribe la calificacion. 'O', 'N', 'G' o 'D'.");
             calificacion = Character.toUpperCase(teclado.next().charAt(0));
         }while(calificacion != 'O' && calificacion != 'N' &&
                 calificacion != 'G' && calificacion != 'D');
@@ -117,7 +119,7 @@ public class Utilidades {
     }
 
     /*
-     * Lee una pais.
+     * Lee un pais.
      * Salida: String pais.
      * Postcondiciones: asociado al nombre devuelve un String que es el nombre del pais.
      * Cabecera: public String LeerPais()
