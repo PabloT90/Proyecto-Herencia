@@ -16,6 +16,7 @@ public class TestFuncionesFicheros {
         CampamentoImpl[] array = null;
 
         //crearFicheroBinario
+        System.out.println(funcion.crearFicheroBinario("Prueba.dat"));
         System.out.println(funcion.crearFicheroBinario("Prueba2.dat"));
 
         //Insertamos un par de campamentos en el fichero
@@ -26,7 +27,7 @@ public class TestFuncionesFicheros {
         FileOutputStream fos = null;
         Clases.MyObjectOutputStream moos = null;
         try{
-            fos = new FileOutputStream("Prueba2.dat", true);
+            fos = new FileOutputStream("Prueba.dat", true);
             moos = new MyObjectOutputStream(fos);
             moos.writeObject(c1);
             moos.writeObject(c2);
@@ -45,18 +46,18 @@ public class TestFuncionesFicheros {
         }
 
         //volcarFicheroEnArray
-        array = funcion.volcarFicheroEnArray("Prueba2.dat");
+        array = funcion.volcarFicheroEnArray("Prueba.dat");
         for(int i = 0; i < array.length; i++){
             System.out.println(array[i].toString());
         }
         System.out.println("Fin volcar fichero en array");
 
         //numeroRegistrosFichero
-        System.out.println(funcion.numeroRegistrosFichero("Prueba2.dat"));
+        System.out.println(funcion.numeroRegistrosFichero("Prueba.dat"));
         System.out.println("Fin numeroRegistrosFichero");
 
         //mostrarFichero
-        funcion.mostrarFichero("Prueba2.dat");
+        funcion.mostrarFichero("Prueba.dat");
 
         System.out.println();
 
@@ -69,7 +70,7 @@ public class TestFuncionesFicheros {
         System.out.println();
 
         //ordenarPorPaisYNombre
-        System.out.println(funcion.ordenarPorPaisYNombre("Prueba2.dat"));
-        funcion.mostrarFichero("Prueba2.dat");
+        System.out.println(funcion.ordenarPorPaisYNombre("Prueba.dat"));
+        funcion.mostrarFichero("Prueba.dat");
     }
 }
