@@ -70,6 +70,7 @@ public class Main {
                 case 1:
                     //System.out.println("CalcularInternosTotales");
                     pais = util.LeerPais();
+                    //paisEncontrado = resguardo.paisesCorrectos(rutaFichero, pais);
                     paisEncontrado = gestora.paisesCorrectos(rutaFichero, pais);
                     if(paisEncontrado) {
                         //System.out.println(resguardo.calcularInternosTotales(rutaFichero, pais));
